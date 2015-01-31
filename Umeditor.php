@@ -4,7 +4,7 @@
  * @link http://shiyang.me
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
-namespace umeditor\umeditor;
+namespace shiyang\umeditor;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
