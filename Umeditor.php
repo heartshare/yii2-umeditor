@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright Copyright (c) 2015 Shiyang! Consulting Group LLC
+ * @copyright Copyright (c) 2015 Shiyang!
+ * @author Shiyang <dr@shiyang.me>
  * @link http://shiyang.me
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 namespace shiyang\umeditor;
 
@@ -22,6 +22,8 @@ class Umeditor extends InputWidget
 	 * Editor options that will be passed to the editor
 	 */
 	public $clientOptions = [];
+
+	public $toolbars = [];
 
 	/**
 	 * @inheritdoc
@@ -57,8 +59,9 @@ class Umeditor extends InputWidget
 
 		$options = $this->clientOptions !== false && !empty($this->clientOptions)
 			? Json::encode($this->clientOptions)
-			: '{}';
-		$js = "$(function(){ window.um = UM.getEditor('$id'); });";
+			: '';
+		$toolbars = Json::encode($this->toolbars);
+		$js = "$(function(){ window.um = UM.getEditor('$id', {toolbars : {$toolbars} })});";
 		$view->registerJs($js);
 	}
 } 
